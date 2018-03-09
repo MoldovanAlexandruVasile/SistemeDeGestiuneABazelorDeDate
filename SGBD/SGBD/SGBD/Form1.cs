@@ -45,7 +45,7 @@ namespace SGBD
             //Add button
             try
             {
-                dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Car(CarID, CarModel, Price, Color, FabricationDate, EngineCapacity, HorsePower, StoreID) VALUES(@CarID, @CarModel, @Price, @Color, @FabricationDate, @EngineCapacity, @HorsePower, @StoreID)", connection);
+                dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Car(CarID, CarModel, Price, Color, FabricationDate, EngineCapacity, HorsePower, StoreID) VALUES (@CarID, @CarModel, @Price, @Color, @FabricationDate, @EngineCapacity, @HorsePower, @StoreID)", connection);
                 dataAdapter.InsertCommand.Parameters.Add("@CarID", SqlDbType.Int).Value = Int32.Parse(AddCarID.Text);
                 dataAdapter.InsertCommand.Parameters.Add("@CarModel", SqlDbType.VarChar).Value = AddCarModel.Text;
                 dataAdapter.InsertCommand.Parameters.Add("@Price", SqlDbType.Int).Value = Int32.Parse(AddCarPrice.Text);
@@ -74,24 +74,25 @@ namespace SGBD
                 DataGridViewRow row = ShopView.Rows[index];
                 string StoreID = row.Cells["StoreID"].Value.ToString();
                 dataAdapter2.SelectCommand = new SqlCommand("SELECT * FROM Car WHERE StoreID = @StoreID", connection);
-                dataAdapter2.SelectCommand.Parameters.Add("@StoreID", SqlDbType.Int).Value = Int32.Parse(StoreID);
+                dataAdapter2.SelectCommand.Parameters.Add("@StoreID", SqlDbType.Int).Value = StoreID; // Int32.Parse(InfoStoreID.Text);
                 dataSet2.Clear();
                 dataAdapter2.Fill(dataSet2);
-                InfoView.DataSource = dataSet2.Tables[0];
+                CarView.DataSource = dataSet2.Tables[0];
 
-                dataAdapter3.SelectCommand = new SqlCommand("SELECT * FROM Employee WHERE StoreID = @StoreID", connection);
-                dataAdapter3.SelectCommand.Parameters.Add("@StoreID", SqlDbType.Int).Value = Int32.Parse(StoreID);
+                dataAdapter3.SelectCommand = new SqlCommand("SELECT * From Office WHERE StoreID = @StoreID", connection);
+                dataAdapter3.SelectCommand.Parameters.Add("@StoreID", SqlDbType.Int).Value = StoreID;
                 dataSet3.Clear();
                 dataAdapter3.Fill(dataSet3);
-                EmployeeView.DataSource = dataSet3.Tables[0];
+                OfficeView.DataSource = dataSet3.Tables[0];
 
-                dataAdapter4.SelectCommand = new SqlCommand("SELECT * FROM Office WHERE StoreID = @StoreID", connection);
-                dataAdapter4.SelectCommand.Parameters.Add("@StoreID", SqlDbType.Int).Value = Int32.Parse(StoreID);
+                dataAdapter4.SelectCommand = new SqlCommand("SELECT * From Employee WHERE StoreID = @StoreID", connection);
+                dataAdapter4.SelectCommand.Parameters.Add("@StoreID", SqlDbType.Int).Value = StoreID;
                 dataSet4.Clear();
                 dataAdapter4.Fill(dataSet4);
-                OfficeView.DataSource = dataSet4.Tables[0];
+                EmployeeView.DataSource = dataSet4.Tables[0];
 
-
+                Form2 f2 = new Form2();
+                f2.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -178,6 +179,41 @@ namespace SGBD
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EmployeeView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CarOperationsButton_Click(object sender, EventArgs e)
         {
 
         }
