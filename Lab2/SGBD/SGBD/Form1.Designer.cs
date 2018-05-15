@@ -37,6 +37,7 @@
             this.GenerateButton = new System.Windows.Forms.Button();
             this.MyPanel = new System.Windows.Forms.Panel();
             this.StoreView = new System.Windows.Forms.DataGridView();
+            this.InfoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MyView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StoreView)).BeginInit();
             this.SuspendLayout();
@@ -121,11 +122,23 @@
             this.StoreView.Size = new System.Drawing.Size(468, 150);
             this.StoreView.TabIndex = 18;
             // 
+            // InfoButton
+            // 
+            this.InfoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoButton.Location = new System.Drawing.Point(1025, 568);
+            this.InfoButton.Name = "InfoButton";
+            this.InfoButton.Size = new System.Drawing.Size(144, 63);
+            this.InfoButton.TabIndex = 19;
+            this.InfoButton.Text = "Info";
+            this.InfoButton.UseVisualStyleBackColor = true;
+            this.InfoButton.Click += new System.EventHandler(this.InfoButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 746);
+            this.Controls.Add(this.InfoButton);
             this.Controls.Add(this.StoreView);
             this.Controls.Add(this.MyPanel);
             this.Controls.Add(this.GenerateButton);
@@ -152,6 +165,7 @@
         private System.Windows.Forms.Button GenerateButton;
         private System.Windows.Forms.Panel MyPanel;
         private System.Windows.Forms.DataGridView StoreView;
+        private System.Windows.Forms.Button InfoButton;
     }
 }
 

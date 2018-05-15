@@ -140,5 +140,28 @@ namespace SGBD
                 MessageBox.Show(e.ToString());
             }
         }
+
+        private void InfoButton_Click(object sender, EventArgs e)
+        {
+
+            //Info button
+            try
+            {
+                int index = StoreView.CurrentCell.RowIndex;
+                DataGridViewRow row = StoreView.Rows[index];
+                string StoreID = row.Cells["StoreID"].Value.ToString();
+                string selectC = ConfigurationManager.AppSettings["SelectByID"];
+                da.SelectCommand = new SqlCommand(selectC, cs);
+                da.SelectCommand.Parameters.Add("@StoreID", SqlDbType.Int).Value = Int32.Parse(StoreID);
+                ds.Clear();
+                da.Fill(ds);
+                MyView.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cs.Close();
+            }
+        }
     }
 }
